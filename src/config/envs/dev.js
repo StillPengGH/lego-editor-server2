@@ -11,5 +11,12 @@ module.exports = {
     user: 'root',
     password: 'root',
     database: 'still_lego'
+  },
+
+  // MongDB连接配置
+  mongodbConf: {
+    host: 'localhost',
+    port: '27017',
+    dbName: 'still_lego'
   }
 }

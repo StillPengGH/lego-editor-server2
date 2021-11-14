@@ -2,6 +2,7 @@ const router = require('koa-router')()
 const packageInfo = require('../../package.json')
 const testMysqlConn = require('../db/mysql2')
 const { ENV } = require('../utils/envTools')
+const { WorkModel } = require('../models/WorkModel')
 
 router.get('/', async (ctx, next) => {
   await ctx.render('index', {
@@ -21,9 +22,13 @@ router.get('/', async (ctx, next) => {
 
 
 // 测试mysql数据连接
-router.get('/api/test-mysql', async ctx => {
-  console.log(typeof testMysqlConn)
+router.get('/api/test-db', async ctx => {
+  // 测试mysql数据库连接
   const res = await testMysqlConn()
+
+  // 测试MongoDB数据库连接
+  const mongdbRes = await WorkModel.findOne()
+
   ctx.body = {
     errno: 0,
     data: {
@@ -31,7 +36,8 @@ router.get('/api/test-mysql', async ctx => {
       version: packageInfo.version,
       ENV,
       mysqlConn: res.length > 0,
-      result: res
+      result: res,
+      mongodbRes: mongdbRes
     }
   }
 })
