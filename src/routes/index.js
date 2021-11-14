@@ -3,6 +3,7 @@ const packageInfo = require('../../package.json')
 const testMysqlConn = require('../db/mysql2')
 const { ENV } = require('../utils/envTools')
 const { WorkModel } = require('../models/WorkModel')
+const { cacheGet, cacheSet } = require('../cache/index')
 
 router.get('/', async (ctx, next) => {
   await ctx.render('index', {
@@ -29,6 +30,10 @@ router.get('/api/test-db', async ctx => {
   // 测试MongoDB数据库连接
   const mongdbRes = await WorkModel.findOne()
 
+  // 测试redis
+  cacheSet('name', 'still-redis test')
+  const redisTestVal = await cacheGet('name')
+
   ctx.body = {
     errno: 0,
     data: {
@@ -37,7 +42,8 @@ router.get('/api/test-db', async ctx => {
       ENV,
       mysqlConn: res.length > 0,
       result: res,
-      mongodbRes: mongdbRes
+      mongodbRes: mongdbRes,
+      redisRes: redisTestVal
     }
   }
 })

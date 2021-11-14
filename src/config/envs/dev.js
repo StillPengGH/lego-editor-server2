@@ -18,5 +18,11 @@ module.exports = {
     host: 'localhost',
     port: '27017',
     dbName: 'still_lego'
+  },
+
+  // redis配置
+  redisConf: {
+    host: '127.0.0.1',
+    port: '6379'
   }
 }
