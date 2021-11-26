@@ -4,8 +4,9 @@ const testMysqlConn = require('../db/mysql2')
 const { ENV } = require('../utils/envTools')
 const { WorkModel } = require('../models/WorkModel')
 const { cacheGet, cacheSet } = require('../cache/index')
+const loginCheck  = require('../middlewares/loginCheck')
 
-router.get('/', async (ctx, next) => {
+router.get('/', loginCheck, async (ctx, next) => {
   await ctx.render('index', {
     title: 'Hello Koa 2!'
   })
