@@ -20,7 +20,7 @@ function cacheSet(key, val, timeout = 60 * 60) {
 		formatValue = val
 	}
 	redisClient.set(key, formatValue)
-	redisClient.expire(timeout) // 设置过期时间
+	redisClient.expire(key, timeout) // 设置过期时间
 }
 
 /**

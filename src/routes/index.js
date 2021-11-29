@@ -6,7 +6,8 @@ const { WorkModel } = require('../models/WorkModel')
 const { cacheGet, cacheSet } = require('../cache/index')
 const loginCheck  = require('../middlewares/loginCheck')
 
-router.get('/', loginCheck, async (ctx, next) => {
+//router.get('/', loginCheck, async (ctx, next) => {
+router.get('/', async (ctx, next) => {
   await ctx.render('index', {
     title: 'Hello Koa 2!'
   })
@@ -27,14 +28,11 @@ router.get('/', loginCheck, async (ctx, next) => {
 router.get('/api/test-db', async ctx => {
   // 测试mysql数据库连接
   const res = await testMysqlConn()
-
   // 测试MongoDB数据库连接
   const mongdbRes = await WorkModel.findOne()
-
   // 测试redis
   cacheSet('name', 'still-redis test')
   const redisTestVal = await cacheGet('name')
-
   ctx.body = {
     errno: 0,
     data: {
