@@ -5,7 +5,7 @@
 
 module.exports = {
   // mysql连接配置
-  mysqlConf: { 
+  mysqlConf: {
     host: 'localhost',
     port: '3306',
     user: 'root',
