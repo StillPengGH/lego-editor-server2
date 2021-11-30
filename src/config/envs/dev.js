@@ -3,7 +3,7 @@
  * @author stil
  */
 
-module.exports = {
+module.exports = { 
   // mysql连接配置
   mysqlConf: {
     host: 'localhost',
