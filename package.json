@@ -14,6 +14,7 @@
     "lint-fix-bin": "eslint --fix \"bin/**/*.*\""
   },
   "dependencies": {
+    "ajv": "^8.8.2",
     "axios": "^0.24.0",
     "cross-env": "^7.0.3",
     "debug": "^4.1.1",
@@ -28,6 +29,7 @@
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
     "koa-views": "^6.2.0",
+    "koa2-cors": "^2.0.6",
     "mongoose": "^6.0.12",
     "mysql2": "^2.3.3-rc.0",
     "pug": "^2.0.3",
