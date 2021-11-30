@@ -2,7 +2,10 @@
 
 /**
  * Module dependencies.
- const app = require('../src/app')
+ */
+
+// eslint-disable-next-line import/order
+const app = require('../src/app')
 const debug = require('debug')('demo:server')
 const http = require('http')
 // 同步数据库表方法
