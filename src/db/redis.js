@@ -11,14 +11,14 @@ const { host, port, password } = redisConf
 
 const opt = {}
 if (password) {
-	opt.password = password
+  opt.password = password
 }
 
 // 创建redis客户端
 const redisClient = redis.createClient(port, host, opt)
 
 // 监听错误
-redisClient.on('error', (err) => {
+redisClient.on('error', err => {
   console.error('redis connect error', err)
 })
 

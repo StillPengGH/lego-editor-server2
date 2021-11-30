@@ -10,10 +10,10 @@ const validateError = require('./validateError')
 const utilsError = require('./utilsError')
 
 module.exports = {
-	...error,
-	...userError,
-	...workError,
-	...channelError,
-	...utilsError,
-	...validateError,
+  ...error,
+  ...userError,
+  ...workError,
+  ...channelError,
+  ...utilsError,
+  ...validateError,
 }

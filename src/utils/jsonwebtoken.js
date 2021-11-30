@@ -17,9 +17,9 @@ const verify = util.promisify(jsonwebtoken.verify)
  * @returns
  */
 async function jwtVerify(token) {
-	// 去掉前面的 Bearer
-	const data = await verify(token.split(' ')[1], JWT_SECRET)
-	return data
+  // 去掉前面的 Bearer
+  const data = await verify(token.split(' ')[1], JWT_SECRET)
+  return data
 }
 
 /**
@@ -28,13 +28,13 @@ async function jwtVerify(token) {
  * @returns
  */
 async function jwtSign(data) {
-	const token = await jsonwebtoken.sign(data, JWT_SECRET, {
-		expiresIn: jwtExpiresIn,
-	})
-	return token
+  const token = await jsonwebtoken.sign(data, JWT_SECRET, {
+    expiresIn: jwtExpiresIn,
+  })
+  return token
 }
 
 module.exports = {
-	jwtSign,
-	jwtVerify,
+  jwtSign,
+  jwtVerify,
 }

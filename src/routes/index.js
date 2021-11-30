@@ -4,12 +4,12 @@ const testMysqlConn = require('../db/mysql2')
 const { ENV } = require('../utils/envTools')
 const { WorkModel } = require('../models/WorkModel')
 const { cacheGet, cacheSet } = require('../cache/index')
-const loginCheck  = require('../middlewares/loginCheck')
+const loginCheck = require('../middlewares/loginCheck')
 
-//router.get('/', loginCheck, async (ctx, next) => {
+// router.get('/', loginCheck, async (ctx, next) => {
 router.get('/', async (ctx, next) => {
   await ctx.render('index', {
-    title: 'Hello Koa 2!'
+    title: 'Hello Koa 2!',
   })
 })
 
@@ -22,7 +22,6 @@ router.get('/', async (ctx, next) => {
 //     title: 'koa2 json'
 //   }
 // })
-
 
 // 测试mysql数据连接
 router.get('/api/test-db', async ctx => {
@@ -42,8 +41,8 @@ router.get('/api/test-db', async ctx => {
       mysqlConn: res.length > 0,
       result: res,
       mongodbRes: mongdbRes,
-      redisRes: redisTestVal
-    }
+      redisRes: redisTestVal,
+    },
   }
 })
 

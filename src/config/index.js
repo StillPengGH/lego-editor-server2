@@ -9,12 +9,13 @@ const { isPrd, isPrdDev } = require('../utils/envTools')
 let fileName = 'dev.js'
 
 if (isPrdDev) {
-	fileName = 'prd-dev.js'
+  fileName = 'prd-dev.js'
 }
 
 if (isPrd) {
-	fileName = 'prd.js'
+  fileName = 'prd.js'
 }
 
 // 导出执行fileName的配置（默认开发环境）
+// eslint-disable-next-line
 module.exports = require(`./envs/${fileName}`)

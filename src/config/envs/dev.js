@@ -10,20 +10,20 @@ module.exports = {
     port: '3306',
     user: 'root',
     password: 'root',
-    database: 'still_lego'
+    database: 'still_lego',
   },
 
   // MongDB连接配置
   mongodbConf: {
     host: 'localhost',
     port: '27017',
-    dbName: 'still_lego'
+    dbName: 'still_lego',
   },
 
   // redis配置
   redisConf: {
     host: '127.0.0.1',
-    port: '6379'
+    port: '6379',
   },
 
   // jsonwebtoken 签名（token）过期时间

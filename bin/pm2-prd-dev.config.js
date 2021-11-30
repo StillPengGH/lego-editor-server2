@@ -9,5 +9,5 @@ const appConf = require('./pm2AppConfig')
 appConf.instances = 1
 
 module.exports = {
-  apps: [appConf]
+  apps: [appConf],
 }

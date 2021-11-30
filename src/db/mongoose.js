@@ -10,16 +10,16 @@ const { mongodbConf } = require('../config/index')
 const { host, port, dbName, user, password } = mongodbConf
 
 // dev环境（本地连接mongodb默认不需要用户密码）
-let url = `mongodb://${host}:${port}` 
+let url = `mongodb://${host}:${port}`
 // prod环境 需要密码的时候，需要通过@进行拼接
-if(user && password) {
+if (user && password) {
   url = `mongodb://${user}:${password}@${host}:${port}`
 }
 
 // 获取连接数据库地址（url + dbName数据库名称）
 let connectUrl = `${url}/${dbName}`
 // 使用用户名和密码时，需要 ?authSource=admin
-if(user && password) {
+if (user && password) {
   connectUrl = `${url}/${dbName}?authSource=admin`
 }
 
