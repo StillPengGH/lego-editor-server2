@@ -1,6 +1,6 @@
 # demo案例
 
-name: demo
+name: test
 
 on:
   push:
