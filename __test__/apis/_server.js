@@ -51,9 +51,9 @@ async function ajax(method = 'get', url = '', bodyOrParams = {}, headers = {}) {
     const remoteUrl = `${REMOTE_HOST}${url}`
     const conf = { method, url: remoteUrl, headers }
     if (method === 'get') {
-      config.params = bodyOrParams
+      conf.params = bodyOrParams
     } else {
-      config.data = bodyOrParams
+      conf.data = bodyOrParams
     }
     const res = await axios(conf)
     result = res.data
