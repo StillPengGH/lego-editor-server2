@@ -24,7 +24,7 @@ router.get('/', async (ctx, next) => {
 // })
 
 // 测试mysql数据连接
-router.get('/api/test-db', async ctx => {
+router.get('/api/db-check', async ctx => {
   // 测试mysql数据库连接
   const res = await testMysqlConn()
   // 测试MongoDB数据库连接
