@@ -29,4 +29,4 @@ jobs:
     steps:
       - run: touch a.txt
       - run: echo 100 > a.txt
-      - run: cat a
+      - run: cat a.txt
