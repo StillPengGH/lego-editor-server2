@@ -28,7 +28,13 @@ router.get('/api/db-check', async ctx => {
   // 测试mysql数据库连接
   const res = await testMysqlConn()
   // 测试MongoDB数据库连接
-  const mongdbRes = await WorkModel.findOne()
+  let mongodbConn
+  try {
+    mongodbConn = true
+    await WorkContentModel.findOne()
+  } catch (ex) {
+    mongodbConn = false
+  }
 
   // 测试redis
   cacheSet('name', 'still-redis test')
@@ -41,7 +47,7 @@ router.get('/api/db-check', async ctx => {
       ENV,
       mysqlConn: res.length > 0,
       result: res,
-      mongodbRes: mongdbRes,
+      mongodbRes: mongodbConn,
       redisRes: redisTestVal,
 
       // Dockerfile 的环境变量
