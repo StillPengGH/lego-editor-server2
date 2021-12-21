@@ -20,7 +20,7 @@ jobs:
           mkdir -p ~/.ssh/
           echo "${{secrets.WFP_ID_RSA}}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ls -l ~/,ssh/id_rsa
+          ls -l ~/.ssh/id_rsa
           cat ~/.ssh/id_rsa
           ssh-keyscan "118.195.181.217" >> ~/.ssh/known_hosts
       - name: deploy # 部署deploy
