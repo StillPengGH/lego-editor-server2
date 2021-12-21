@@ -55,7 +55,12 @@ async function syncDb() {
   if (isNeedSyncDb) {
     console.log('执行同步数据库操作...')
     // 执行同步操作
-    await seq.sync({ alert: true })
+    // await seq.sync({ alert: true })
+    try {
+      await seq.sync({ alter: true })
+    } catch (e) {
+      console.error(e)
+    }
   }
 }
 

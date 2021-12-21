@@ -1,7 +1,7 @@
 const router = require('koa-router')()
 const packageInfo = require('../../package.json')
-const testMysqlConn = require('../db/mysql2')
 const { ENV } = require('../utils/envTools')
+const testMysqlConn = require('../db/mysql2')
 const { WorkModel } = require('../models/WorkModel')
 const { cacheGet, cacheSet } = require('../cache/index')
 const loginCheck = require('../middlewares/loginCheck')
@@ -29,6 +29,7 @@ router.get('/api/db-check', async ctx => {
   const res = await testMysqlConn()
   // 测试MongoDB数据库连接
   const mongdbRes = await WorkModel.findOne()
+
   // 测试redis
   cacheSet('name', 'still-redis test')
   const redisTestVal = await cacheGet('name')
@@ -42,6 +43,10 @@ router.get('/api/db-check', async ctx => {
       result: res,
       mongodbRes: mongdbRes,
       redisRes: redisTestVal,
+
+      // Dockerfile 的环境变量
+      SERVER_NAME: process.env.SERVER_NAME,
+      AUTHOR_NAME: process.env.AUTHOR_NAME,
     },
   }
 })

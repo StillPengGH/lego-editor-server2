@@ -1,0 +1,36 @@
+name: deploy for dev
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - '.github/workflows/*'
+      - 'src/**'
+      - 'Dockerfile'
+      - 'docker-compose.yml'
+      - 'bin/*'
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # 第三方action拉取最新代码
+      - name: set ssh key # 临时设置 ssh key
+        run: | 
+          mkdir -p ~/.ssh/
+          echo "${{secrets.WFP_ID_RSA}}" > ~/.ssh/id_rsa
+          chmod 600 ~/.sshh/id_rsa
+          ssh-keyscan "118.195.181.217" >> "~/.ssh/know_hosts"
+      - name: deploy # 部署
+        run: |
+          ssh work@118.195.181.217 "
+            cd /home/work/still-lego/lego-editor-server;
+            git remote add origin https://github.com/StillPengGH/lego-editor-server2.git
+            git checkout dev;
+            git pull origin dev;
+            git remote remove origin;
+            docker-compose build eidtor-server;
+            docker-compose up -d;
+          "
+      - name: delete ssh key # 删除 ssh key
+        run: rm -rf ~/.ssh/id_rsa

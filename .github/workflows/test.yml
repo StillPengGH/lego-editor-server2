@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 # 步骤1：使用第三方action, 拉取最新代码git pull
-      - name: Use Node.js # 步骤2：使用第三方sction，安装nodejs 14 版本
+      - name: Use Node.js # 步骤2：使用第三方action，安装nodejs 14 版本
         uses: actions/setup-node@v1
         with: 
           node-version: 14
