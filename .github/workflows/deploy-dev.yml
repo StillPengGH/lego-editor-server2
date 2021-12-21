@@ -21,7 +21,7 @@ jobs:
           echo "${{secrets.WFP_ID_RSA}}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan "118.195.181.217" >> ~/.ssh/known_hosts
-      - name: deploy # 部署
+      - name: deploy # 部署deploy
         run: |
           ssh work@118.195.181.217 "
             cd /home/work/still-lego/lego-editor-server;
