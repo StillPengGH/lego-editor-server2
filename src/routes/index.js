@@ -42,7 +42,7 @@ router.get('/api/db-check', async ctx => {
   ctx.body = {
     errno: 0,
     data: {
-      name: 'test mysql conn',
+      name: 'test db conn',
       version: packageInfo.version,
       ENV,
       mysqlConn: res.length > 0,
