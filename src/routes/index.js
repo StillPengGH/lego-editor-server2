@@ -1,7 +1,7 @@
 const router = require('koa-router')()
 const packageInfo = require('../../package.json')
 const { ENV } = require('../utils/envTools')
-const testMysqlConn = require('../db/mysql2')
+// const testMysqlConn = require('../db/mysql2')
 const { WorkModel } = require('../models/WorkModel')
 const { cacheGet, cacheSet } = require('../cache/index')
 const loginCheck = require('../middlewares/loginCheck')
@@ -26,7 +26,8 @@ router.get('/', async (ctx, next) => {
 // 测试mysql数据连接
 router.get('/api/db-check', async ctx => {
   // 测试mysql数据库连接
-  const res = await testMysqlConn()
+  // const res = await testMysqlConn()
+
   // 测试MongoDB数据库连接
   let mongodbConn
   try {
