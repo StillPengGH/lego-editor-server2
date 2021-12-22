@@ -17,22 +17,6 @@ services:
       - 6378:6379
     environment:
       - TZ=Asia/Shanghai # 通过设置环境变量方式设置时区
-  # editor-mysql:
-  #   image: mysql # 引用官方mysql镜像
-  #   container_name: editor-mysql 
-  #   restart: always
-  #   privileged: true # 高权限 执行 volumes中的mysql/init
-  #   command: --default-authentication-plugin=mysql_native_password # 远程访问
-  #   ports:
-  #     - 3305:3306
-  #   volumes:
-  #     - .docker-volumes/mysql/log:/var/log/mysql  # 记录日志
-  #     - .docker-volumes/mysql/data:/var/lib/mysql # 数据持久化
-  #     - ./mysql/init:/docker-entrypoint-initdb.d/ # 初始化sql(前面是本地目录后面是容器目录，myqsl容器下的该目录的.sql文件会在启动容器时被执行)
-  #   environment:
-  #     - MYSQL_DATABASE=still_lego # 初始化容器时创建数据库
-  #     - MYSQL_ROOT_PASSWORD=123456  # 密码
-  #     - TZ=Asia/Shanghai          # 时区
   editor-mongo:
     image: mongo # 引用官方mongo镜像
     container_name: editor-mongo
