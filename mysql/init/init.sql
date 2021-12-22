@@ -9,7 +9,7 @@ SET SQL_SAFE_UPDATES=0;
 update user set host='%' where user='root';
 flush privileges;
 -- 密码参考 docker-compose.yml
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456'; 
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456'; 
 flush privileges;
 
 select "init end...";
