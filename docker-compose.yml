@@ -31,7 +31,7 @@ services:
       - ./mysql/init:/docker-entrypoint-initdb.d/ # 初始化sql
     environment:
       - MYSQL_DATABASE=still_lego # 指定database
-      - MYSQL_ROOT_PASSWORD=root  # 密码
+      #- MYSQL_ROOT_PASSWORD=root  密码
       - TZ=Asia/Shanghai          # 时区
   editor-mongo:
     image: mongo # 引用官方mongo镜像
