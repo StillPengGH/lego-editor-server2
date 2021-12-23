@@ -29,7 +29,7 @@ jobs:
             git checkout dev;
             git pull origin dev;
             git remote remove origin;
-            docker-compose build eidtor-server;
+            docker-compose build editor-server;
             docker-compose up -d;
           "
       - name: delete ssh key # 删除 ssh key
