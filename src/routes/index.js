@@ -32,7 +32,13 @@ router.get('/api/db-check', async ctx => {
   let mongodbConn
   try {
     mongodbConn = true
-    await WorkContentModel.findOne()
+    await WorkModel.create({
+      title: '标题',
+      elements: [],
+      props: {},
+      setting: {},
+    })
+    await WorkModel.findOne()
   } catch (ex) {
     mongodbConn = false
   }
