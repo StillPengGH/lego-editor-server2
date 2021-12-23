@@ -42,5 +42,5 @@ services:
       - ./mysql/init:/docker-entrypoint-initdb.d/ # 初始化sql(前面是本地目录后面是容器目录，myqsl容器下的该目录的.sql文件会在启动容器时被执行)
     environment:
       - MYSQL_DATABASE=still_lego # 初始化容器时创建数据库
-      - MYSQL_ROOT_PASSWORD=123456  # 密码
+      - MYSQL_ROOT_PASSWORD=123456  # 初始化密码
       - TZ=Asia/Shanghai          # 时区
